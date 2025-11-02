@@ -1,4 +1,4 @@
-# `package-name`
+# `astro-image-library`
 
 This is an [Astro integration](https://docs.astro.build/en/guides/integrations-guide/) that TODO:description
 
@@ -13,15 +13,15 @@ TODO:
 Install the integration **automatically** using the Astro CLI:
 
 ```bash
-pnpm astro add package-name
+pnpm astro add astro-image-library
 ```
 
 ```bash
-npx astro add package-name
+npx astro add astro-image-library
 ```
 
 ```bash
-yarn astro add package-name
+yarn astro add astro-image-library
 ```
 
 Or install it **manually**:
@@ -29,21 +29,21 @@ Or install it **manually**:
 1. Install the required dependencies
 
 ```bash
-pnpm add package-name
+pnpm add astro-image-library
 ```
 
 ```bash
-npm install package-name
+npm install astro-image-library
 ```
 
 ```bash
-yarn add package-name
+yarn add astro-image-library
 ```
 
 2. Add the integration to your astro config
 
 ```diff
-+import integration from "package-name";
++import integration from "astro-image-library";
 
 export default defineConfig({
   integrations: [

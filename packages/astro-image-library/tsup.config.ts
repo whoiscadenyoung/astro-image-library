@@ -13,7 +13,10 @@ export default defineConfig((options) => {
 		clean: true,
 		splitting: false,
 		minify: !dev,
-		external: [...Object.keys(peerDependencies)],
+		external: [
+			...Object.keys(peerDependencies),
+			"virtual:astro-image-library/internal"
+		],
 		tsconfig: "tsconfig.json",
 	};
 });

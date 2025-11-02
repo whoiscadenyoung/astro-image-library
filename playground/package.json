@@ -1,0 +1,25 @@
+{
+	"name": "playground",
+	"type": "module",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro check && astro build",
+		"preview": "astro preview",
+		"astro": "astro"
+	},
+	"dependencies": {
+		"@tailwindcss/vite": "4.1.16",
+		"astro": "5.15.1",
+		"astro-integration-kit": "0.19.1",
+		"package-name": "workspace:*",
+		"tailwindcss": "4.1.16"
+	},
+	"devDependencies": {
+		"@astrojs/check": "0.9.5",
+		"@types/node": "22.18.12",
+		"typescript": "5.9.3"
+	}
+}

@@ -15,7 +15,7 @@ export default defineConfig((options) => {
 		minify: !dev,
 		external: [
 			...Object.keys(peerDependencies),
-			"virtual:astro-image-library/internal"
+			"virtual:astro-image-library/internal",
 		],
 		tsconfig: "tsconfig.json",
 	};

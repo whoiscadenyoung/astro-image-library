@@ -1,14 +1,15 @@
-import { addVirtualImports, createResolver, defineIntegration } from "astro-integration-kit";
+import { addVirtualImports, defineIntegration } from "astro-integration-kit";
 import { integrationOptionsSchema } from "./schemas/integration-options-schema.ts";
-import { readFileSync } from "node:fs";
+import { generateRegistry } from "./utils/generate-registry.ts";
+// import fs from "node:fs";
 
 export const integration = defineIntegration({
 	name: "astro-image-library",
 	optionsSchema: integrationOptionsSchema,
 	setup({ options, name }) {
-		const { resolve } = createResolver(import.meta.url);
-		const assetsDir = resolve(options.assetsDir);
-		const registryDir = resolve(options.registryDir);
+		// const { resolve } = createResolver(import.meta.url);
+		const assetsDir = options.assetsDir;
+		const registryDir = options.registryDir;
 		
 		return {
 			hooks: {
@@ -26,14 +27,17 @@ export const integration = defineIntegration({
 						]
 					})
 				},
-				"astro:build:start": (params) => {
+				"astro:build:start": async (params) => {
 					params.logger.info("Build started");
+
+					const report = await generateRegistry({ assetsDir, registryDir }, params.logger);
+					params.logger.info(JSON.stringify(report, null, 2))
 				},
-        "astro:config:done": ({ injectTypes }) => {
-          injectTypes({
-            filename: "image-library-integration.d.ts",
-            content: readFileSync(resolve("./virtual.d.ts"), "utf-8")
-          })
+        "astro:config:done": () => {
+          // injectTypes({
+          //   filename: "image-library-integration.d.ts",
+          //   content: readFileSync(resolve("./virtual.d.d.ts"), "utf-8")
+          // })
         }
 			},
 		};

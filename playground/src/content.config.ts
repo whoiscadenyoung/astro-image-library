@@ -1,10 +1,10 @@
 import { defineCollection, z } from "astro:content"
-import { extendImageLibrarySchema } from "astro-image-library";
+// import { createLibraryCollection } from "astro-image-library/collections/";
 
 const imageLibrary = defineCollection({
-  schema: extendImageLibrarySchema(z.object({
-    title: z.string()
-  }))
+  // schema: extendImageLibrarySchema(z.object({
+  //   title: z.string()
+  // }))
 })
 
 export const collections = {

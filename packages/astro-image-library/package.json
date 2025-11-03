@@ -8,6 +8,10 @@
 		".": {
 			"types": "./dist/index.d.ts",
 			"default": "./dist/index.js"
+		},
+		"./collections/*": {
+			"types": "./dist/collections/create-library-collection.d.ts",
+			"default": "./dist/collections/create-library-collection.js"
 		}
 	},
 	"files": [
